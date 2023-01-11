@@ -4,27 +4,41 @@
   width: 80%;
   height: 100px;
   margin: 10px;
+  perspective: 1000px;
 }
 
 .conteudoResposta {
   position: relative;
   display: flex;
   flex: 1;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
 }
 
-.frente, .verso {
+.respostaRevelada.conteudoResposta {
+  transform: rotateX(180deg);
+}
+
+.frente,
+.verso {
   position: absolute;
   display: flex;
   height: 100%;
   width: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .frente {
   align-items: center;
   border-radius: 12px;
   padding: 15px;
-  color: black;
-  background-color: white;
+  color: #000;
+  background-color: #fff;
+}
+
+.verso {
+  transform: rotateX(180deg);
 }
 
 .verso > div {
@@ -37,18 +51,17 @@
 }
 
 .certa {
-  background-color: #008b1d;
+  background-color: #2baa6d;
 }
 
 .errada {
-  background-color: #df3235 ;
+  background-color: #e44a4c;
 }
 
-.certa .valor, .errada .valor {
+.certa .valor,
+.errada .valor {
   font-size: 1.5rem;
 }
-
-
 
 .letra {
   display: flex;
@@ -58,12 +71,12 @@
   width: 40px;
   border-radius: 20px;
   font-size: 1.3rem;
-  font-weight: bold;
+  font-weight: 700;
   margin-right: 20px;
-  color: white;
+  color: #fff;
 }
 
 .valor {
   font-size: 1.3rem;
-  font-weight: bold;
+  font-weight: 700;
 }
