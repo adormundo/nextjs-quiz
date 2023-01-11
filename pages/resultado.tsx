@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Estatistica from '../components/Estatistica';
 import Botao from '../components/Botao';
 
-export default function resultado() {
+export default function Resultado() {
   const router = useRouter();
 
   const total = +router.query.total;
